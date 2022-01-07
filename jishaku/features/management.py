@@ -44,7 +44,7 @@ class ManagementFeature(Feature):
         # 'jsk reload' on its own just reloads jishaku
         if ctx.invoked_with in ['reload', 'r'] and not extensions:
             extensions = [['jishaku']]
-        else:
+        elif ctx.invoked_with in ['reload', 'r'] and extensions:
             extensions = ["cogs."+ex for ex in extensions]
 
         for extension in itertools.chain(*extensions):
