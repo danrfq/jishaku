@@ -48,7 +48,10 @@ class ManagementFeature(Feature):
             extensionss = []
             for ex in extensions:
                 for exx in ex:
-                    extensionss.append(['cogs.'+exx])
+                    if not exx.startswith('cogs.'):
+                        extensionss.append(['cogs.'+exx])
+                    else:
+                        extensionss.append([exx])
             extensions = extensionss
 
         for extension in itertools.chain(*extensions):
