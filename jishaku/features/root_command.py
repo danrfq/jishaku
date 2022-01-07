@@ -164,7 +164,9 @@ class RootCommand(Feature):
         # Show websocket latency in milliseconds
         summary.append(f"Average websocket latency: {round(self.bot.latency * 1000, 2)}ms")
 
-        await ctx.send("\n".join(summary))
+        embed = discord.embeds.Embed(title="Jishaku v{package_version('jishaku')}, ",description="\n".join(summary),color=discord.Color.gold())
+        embed.set_thumbnail(url=ctx.guild.me.avatar.url)
+        await ctx.send(embed=embed)
 
     # pylint: disable=no-member
     @Feature.Command(parent="jsk", name="hide")
