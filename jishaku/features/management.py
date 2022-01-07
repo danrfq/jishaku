@@ -45,7 +45,10 @@ class ManagementFeature(Feature):
         if ctx.invoked_with in ['reload', 'r'] and not extensions:
             extensions = [['jishaku']]
         elif ctx.invoked_with in ['reload', 'r'] and extensions:
-            extensions = ["cogs."+ex for ex in extensions]
+            extensionss = []
+            for ex in extensions:
+                extensionss.append(ex)
+            extensions = extensionss
 
         for extension in itertools.chain(*extensions):
             method, icon = (
