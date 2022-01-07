@@ -48,7 +48,7 @@ class ManagementFeature(Feature):
             extensionss = []
             for ex in extensions:
                 for exx in ex:
-                    if not exx.startswith('cogs.'):
+                    if not exx.startswith('cogs.') and exx != 'jishaku':
                         extensionss.append(['cogs.'+exx])
                     else:
                         extensionss.append([exx])
