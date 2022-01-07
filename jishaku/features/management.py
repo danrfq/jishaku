@@ -47,7 +47,8 @@ class ManagementFeature(Feature):
         elif ctx.invoked_with in ['reload', 'r'] and extensions:
             extensionss = []
             for ex in extensions:
-                extensionss.append('cogs.'+ex)
+                for exx in ex:
+                    extensionss.append(['cogs.'+exx])
             extensions = extensionss
 
         for extension in itertools.chain(*extensions):
