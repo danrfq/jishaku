@@ -162,10 +162,10 @@ class RootCommand(Feature):
         # pylint: enable=protected-access
 
         # Show websocket latency in milliseconds
-        summary.append(f"Average websocket latency: {round(self.bot.latency * 1000, 2)}ms")
 
-        embed = discord.embeds.Embed(title="Jishaku v{package_version('jishaku')}, ",description="\n".join(summary),color=discord.Color.gold())
+        embed = discord.embeds.Embed(title=f"Jishaku v{package_version('jishaku')}",description="\n".join(summary),color=discord.Color.gold())
         embed.set_thumbnail(url=ctx.guild.me.avatar.url)
+        embed.set_footer(text=f"Average websocket latency: {round(self.bot.latency * 1000, 2)}ms")
         await ctx.send(embed=embed)
 
     # pylint: disable=no-member
