@@ -31,7 +31,7 @@ class ManagementFeature(Feature):
     Feature containing the extension and bot control commands
     """
 
-    @Feature.Command(parent="jsk", name="load", aliases=["reload"])
+    @Feature.Command(parent="jsk", name="load", aliases=["reload", "r"])
     async def jsk_load(self, ctx: commands.Context, *extensions: ExtensionConverter):
         """
         Loads or reloads the given extension names.
@@ -42,7 +42,7 @@ class ManagementFeature(Feature):
         paginator = WrappedPaginator(prefix='', suffix='')
 
         # 'jsk reload' on its own just reloads jishaku
-        if ctx.invoked_with == 'reload' and not extensions:
+        if ctx.invoked_with in ['reload', 'r'] and not extensions:
             extensions = [['jishaku']]
 
         for extension in itertools.chain(*extensions):

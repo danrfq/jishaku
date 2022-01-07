@@ -110,7 +110,7 @@ class InvocationFeature(Feature):
 
         return await alt_ctx.command.invoke(alt_ctx)
 
-    @Feature.Command(parent="jsk", name="repeat")
+    @Feature.Command(parent="jsk", name="repeat", aliases=["rpt"])
     async def jsk_repeat(self, ctx: commands.Context, times: int, *, command_string: str):
         """
         Runs a command multiple times in a row.
