@@ -131,7 +131,7 @@ class Feature(commands.Cog):
         """
 
         if not await ctx.bot.is_owner(ctx.author):
-            raise commands.NotOwner("You must own this bot to use Jishaku.")
+            return False
         return True
 
     @contextlib.contextmanager
