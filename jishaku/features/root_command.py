@@ -163,7 +163,7 @@ class RootCommand(Feature):
         # Show websocket latency in milliseconds
 
         embed = discord.embeds.Embed(title=f"Jishaku v{package_version('jishaku')}",description="\n".join(summary),color=discord.Color.gold())
-        embed.set_thumbnail(url=ctx.guild.me.avatar.url)
+        embed.set_thumbnail(url="https://raw.githubusercontent.com/danrfq/jishaku/master/.github/assets/jishaku_logo.svg")
         embed.set_footer(text=f"Average websocket latency: {round(self.bot.latency * 1000, 2)}ms")
         await ctx.send(embed=embed)
 
