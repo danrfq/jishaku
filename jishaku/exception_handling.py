@@ -21,6 +21,16 @@ from discord.ext import commands
 
 from jishaku.flags import Flags
 
+class deleteExceptionButton(discord.ui.View):
+    def __init__(self):
+        super().__init__(timeout=None)
+        self.message = None
+    async def interaction_check(self, interaction:discord.Interaction):
+        if 211756205721255947 == interaction.user.id: return True
+        else: return False
+    @discord.ui.button(label="Delete",style=discord.ButtonStyle.red)
+    async def deleteException(self, button: discord.ui.Button, inter: discord.Interaction):
+        await self.message.delete()
 
 async def send_traceback(destination: discord.abc.Messageable, verbosity: int, *exc_info):
     """
@@ -45,7 +55,8 @@ async def send_traceback(destination: discord.abc.Messageable, verbosity: int, *
     message = None
 
     for page in paginator.pages:
-        message = await destination.send(page)
+        view = deleteExceptionButton()
+        view.message = await destination.send(page, view=view)
 
     return message
 
