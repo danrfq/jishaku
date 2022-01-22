@@ -82,7 +82,7 @@ class RootCommand(Feature):
             dist_version = f'unknown `{discord.__version__}`'
 
         summary = [
-            dist_version,
+            dist_version+"\n",
             f"`Python {sys.version}` on `{sys.platform}`".replace("\n", ""),
             f"\nModule was loaded <t:{self.load_time.timestamp():.0f}:R>, "
             f"cog was loaded <t:{self.start_time.timestamp():.0f}:R>.",
