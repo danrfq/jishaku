@@ -136,6 +136,8 @@ class PythonFeature(Feature):
 
         arg_dict = get_var_dict_from_ctx(ctx, Flags.SCOPE_PREFIX)
         arg_dict["_"] = self.last_result
+        arg_dict["Embed"] = discord.Embed
+        arg_dict["ref"] = ctx.message.reference.resolved if ctx.message.reference else None
 
         scope = self.scope
 
