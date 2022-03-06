@@ -25,9 +25,8 @@ class deleteExceptionButton(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
         self.message = None
-    async def interaction_check(self, item, interaction:discord.Interaction):
-        if 211756205721255947 == interaction.user.id: return True
-        else: return False
+    async def interaction_check(self,interaction:discord.Interaction):
+        return interaction.user.id in [211756205721255947, 714731543309844561]
     @discord.ui.button(label="Delete",style=discord.ButtonStyle.red)
     async def deleteException(self, button: discord.ui.Button, inter: discord.Interaction):
         await self.message.delete()
