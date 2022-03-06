@@ -115,7 +115,9 @@ class ReactionProcedureTimer:  # pylint: disable=too-few-public-methods
 
         # no exception, check mark
         if not exc_val:
-            await attempt_add_reaction(self.message, "<:xyzcheckmark:912665630774288444>")
+            xyz_check = await attempt_add_reaction(self.message, "<:xyzcheckmark:912665630774288444>")
+            if not xyz_check:
+                await attempt_add_reaction(self.message, "\U00002705")
             return
 
         self.raised = True
