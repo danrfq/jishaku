@@ -11,7 +11,7 @@ The jishaku Python evaluation/execution commands.
 
 """
 
-import io
+import io, datetime
 
 import discord
 from discord.ext import commands
@@ -138,6 +138,7 @@ class PythonFeature(Feature):
         arg_dict["_"] = self.last_result
         arg_dict["Embed"] = discord.Embed
         arg_dict["ref"] = ctx.message.reference.resolved if ctx.message.reference else None
+        arg_dict["dt"] = datetime
 
         scope = self.scope
 
