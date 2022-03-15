@@ -137,8 +137,14 @@ class PythonFeature(Feature):
         arg_dict = get_var_dict_from_ctx(ctx, Flags.SCOPE_PREFIX)
         arg_dict["_"] = self.last_result
         arg_dict["Embed"] = discord.Embed
-        arg_dict["ref"] = ctx.message.reference.resolved if ctx.message.reference else None
+        arg_dict["View"] = discord.ui.View
+        arg_dict["ref"] = getattr(ctx.message.reference, 'resolved', None)
+        arg_dict["reference"] = getattr(ctx.message.reference, 'resolved', None)
         arg_dict["dt"] = datetime
+        arg_dict["now"] = discord.utils.utcnow
+        arg_dict["format_dt"] = discord.utils.format_dt
+        arg_dict["get"] = discord.utils.get
+        arg_dict["find"] = discord.utils.find
 
         scope = self.scope
 
