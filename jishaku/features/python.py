@@ -143,8 +143,6 @@ class PythonFeature(Feature):
         arg_dict["dt"] = datetime
         arg_dict["now"] = discord.utils.utcnow
         arg_dict["format_dt"] = discord.utils.format_dt
-        arg_dict["get"] = discord.utils.get
-        arg_dict["find"] = discord.utils.find
 
         scope = self.scope
 
