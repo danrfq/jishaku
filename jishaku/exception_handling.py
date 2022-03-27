@@ -47,6 +47,8 @@ async def send_traceback(destination: discord.abc.Messageable, verbosity: int, *
 
     traceback_content = "".join(traceback.format_exception(etype, value, trace, verbosity)).replace("``", "`\u200b`")
 
+    traceback_content = traceback_content.replace("/app/.heroku/python/", "/usr/local")
+
     paginator = commands.Paginator(prefix='```py')
     for line in traceback_content.split('\n'):
         paginator.add_line(line)
